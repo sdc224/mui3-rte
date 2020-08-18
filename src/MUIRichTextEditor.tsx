@@ -283,12 +283,27 @@ const useEditorState = (props: IMUIRichTextEditorProps) => {
 	}
 	const decorator = new CompositeDecorator(decorators);
 	const defaultValue = props.defaultValue || props.value;
-	return defaultValue
-		? EditorState.createWithContent(
-				convertFromRaw(JSON.parse(defaultValue)),
+	let returnValue = null;
+	try {
+		returnValue = defaultValue
+			? EditorState.createWithContent(
+					convertFromRaw(JSON.parse(defaultValue)),
+					decorator
+			  )
+			: EditorState.createEmpty(decorator);
+	} catch (error) {
+		try {
+			// For HTML (draft-js-import-html)
+			returnValue = EditorState.createWithContent(
+				defaultValue,
 				decorator
-		  )
-		: EditorState.createEmpty(decorator);
+			);
+		} catch (e) {
+			throw new Error("Unable to parse defaultValue" + e);
+		}
+	}
+
+	return returnValue;
 };
 
 const MUIRichTextEditor: RefForwardingComponent<
