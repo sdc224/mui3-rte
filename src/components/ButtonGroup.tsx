@@ -1,5 +1,5 @@
 import React from "react";
-import classNames from "classNames";
+import classNames from "classnames";
 // import { isFragment } from "react-is";
 import capitalize from "../utils/capitalize";
 import { fade } from "../utils/colorManipulator";

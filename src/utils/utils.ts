@@ -6,10 +6,10 @@ import {
 	Modifier,
 	SelectionState,
 	getVisibleSelectionRect,
-	DraftStyleMap,
+	DraftStyleMap
 } from "draft-js";
 import Immutable from "immutable";
-import { TCustomControl } from "./components/Toolbar";
+import { TCustomControl } from "../components/Toolbar";
 
 export type TSelectionInfo = {
 	inlineStyle: Immutable.OrderedSet<string>;
@@ -39,7 +39,7 @@ const getSelectionInfo = (editorState: EditorState): TSelectionInfo => {
 		blockType: contentBlock.getType(),
 		entityType: entityType,
 		linkKey: linkKey,
-		block: contentBlock,
+		block: contentBlock
 	};
 };
 
@@ -57,7 +57,7 @@ const removeBlockFromMap = (
 			anchorKey: block.getKey(),
 			anchorOffset: 0,
 			focusKey: block.getKey(),
-			focusOffset: block.getLength(),
+			focusOffset: block.getLength()
 		}),
 		"backward"
 	);
@@ -66,7 +66,7 @@ const removeBlockFromMap = (
 		.delete(block.getKey());
 	return removeBlockContentState.merge({
 		blockMap,
-		selectionAfter: contentState.getSelectionAfter(),
+		selectionAfter: contentState.getSelectionAfter()
 	}) as ContentState;
 };
 
@@ -108,10 +108,10 @@ const clearInlineStyles = (
 	);
 };
 
-const getEditorBounds = (editor: HTMLElement) => {
+const getEditorBounds: any = (editor: HTMLElement) => {
 	return {
 		selectionRect: getVisibleSelectionRect(window),
-		editorRect: editor.getBoundingClientRect(),
+		editorRect: editor.getBoundingClientRect()
 	};
 };
 
@@ -131,5 +131,5 @@ export {
 	isGreaterThan,
 	clearInlineStyles,
 	getEditorBounds,
-	getLineNumber,
+	getLineNumber
 };

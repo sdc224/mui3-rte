@@ -17,7 +17,7 @@ import SaveIcon from "@material-ui/icons/Save";
 import UndoIcon from "@material-ui/icons/Undo";
 import RedoIcon from "@material-ui/icons/Redo";
 import ToolbarButton from "./ToolbarButton";
-import { getSelectionInfo } from "../utils";
+import { getSelectionInfo } from "../utils/utils";
 
 export type TToolbarControl =
 	| "title"

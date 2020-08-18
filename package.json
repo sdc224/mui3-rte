@@ -1,7 +1,12 @@
 {
 	"name": "mui3-rte",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"description": "Material-UI v3 Rich Text Editor and Viewer",
+	"files": [
+		"dist",
+		"types"
+	],
+	"typings": "./types",
 	"keywords": [
 		"material-ui",
 		"v3",
@@ -77,12 +82,5 @@
 		"classnames": "^2.2.6",
 		"draft-js": "^0.11.6",
 		"immutable": "^3.8.2"
-	},
-	"files": [
-		"dist",
-		"*.js",
-		"*.json",
-		"*.ts",
-		"*.tsx"
-	]
+	}
 }
