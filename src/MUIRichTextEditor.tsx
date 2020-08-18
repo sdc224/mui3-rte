@@ -284,9 +284,8 @@ const useEditorState = (props: IMUIRichTextEditorProps) => {
 	const decorator = new CompositeDecorator(decorators);
 	const defaultValue = props.defaultValue || props.value;
 
-	if (defaultValue instanceof EditorState) return defaultValue;
-
 	let returnValue = null;
+
 	try {
 		returnValue = defaultValue
 			? EditorState.createWithContent(
@@ -295,15 +294,7 @@ const useEditorState = (props: IMUIRichTextEditorProps) => {
 			  )
 			: EditorState.createEmpty(decorator);
 	} catch (error) {
-		try {
-			// For HTML (draft-js-import-html)
-			returnValue = EditorState.createWithContent(
-				defaultValue,
-				decorator
-			);
-		} catch (e) {
-			throw new Error("Unable to parse defaultValue\n" + e);
-		}
+		throw new Error("Unable to parse defaultValue\n" + error);
 	}
 
 	return returnValue;
