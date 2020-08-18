@@ -120,7 +120,7 @@ const styles = ({ spacing, typography, palette }: Theme) => createStyles({
     root: {
     },
     container: {
-        margin: spacing(1, 0, 0, 0),
+        marginTop: spacing.unit,
         position: "relative",
         fontFamily: typography.body1.fontFamily,
         fontSize: typography.body1.fontSize,
@@ -134,10 +134,10 @@ const styles = ({ spacing, typography, palette }: Theme) => createStyles({
     editor: {
     },
     editorContainer: {
-        margin: spacing(1, 0, 0, 0),
+        marginTop: spacing.unit,
         cursor: "text",
         width: "100%",
-        padding: spacing(0, 0, 1, 0)
+        paddingBottom: spacing.unit
     },
     editorReadOnly: {
         borderBottom: "none"
@@ -153,7 +153,7 @@ const styles = ({ spacing, typography, palette }: Theme) => createStyles({
         position: "absolute"
     },
     linkPopover: {
-        padding: spacing(2, 2, 2, 2)
+        padding: spacing.unit * 2
     },
     linkTextField: {
         width: "100%"

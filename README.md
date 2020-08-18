@@ -1,28 +1,26 @@
-# mui-rte
-![Tests](https://github.com/niuware/mui-rte/workflows/Tests/badge.svg)   
+# mui3-rte
+![Tests](https://github.com/sdc224/mui3-rte/workflows/Tests/badge.svg)   
 
 The Material-UI Rich Text Editor and Viewer
 
-<img src="https://raw.githubusercontent.com/niuware/niuware.github.io/master/public/assets/mui-rte/editor-1-9-0.png" width="600" />
-
-**mui-rte** is a complete text editor and viewer for `material-ui` based on `draft-js` and written in Typescript. It is ready to use out of the box yet supports user defined blocks, styles, autocomplete strategies, async/sync custom atomic blocks, callbacks, and decorators as well as toolbar and theme customization to enhance the editor to all needs.
+**mui3-rte** is a complete text editor and viewer for `material-ui` based on `draft-js` and written in Typescript. It is ready to use out of the box yet supports user defined blocks, styles, autocomplete strategies, async/sync custom atomic blocks, callbacks, and decorators as well as toolbar and theme customization to enhance the editor to all needs.
 
 ## Installation
 
 ```
-npm install mui-rte --save
+npm install mui3-rte --save
 ```
 
 Install the peer dependencies: `@material-ui/core`, `@material-ui/icons`, `react` and `react-dom`.
 
 ## Demo
 
-[![Edit mui-rte basic](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/mui-rte-basic-ypfdo?fontsize=14)
+[![Edit mui3-rte basic](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/mui-rte-basic-ypfdo?fontsize=14)
 
 ## Usage
 
 ```js
-import MUIRichTextEditor from 'mui-rte'
+import MUIRichTextEditor from 'mui3-rte'
 
 ReactDOM.render(
     <MUIRichTextEditor label="Start typing..." />, 
@@ -33,7 +31,7 @@ ReactDOM.render(
 You can load default content as the following example. The value should be a stringified `RawDraftContentState` object:
 
 ```js
-import MUIRichTextEditor from 'mui-rte'
+import MUIRichTextEditor from 'mui3-rte'
 
 const data = getContentStateAsStringFromSomewhere()
 
@@ -48,7 +46,7 @@ ReactDOM.render(
 
 ## Examples
 
-Check the [examples](https://github.com/niuware/mui-rte/tree/master/examples) directory for more. 
+Check the [examples](https://github.com/sdc224/mui3-rte/tree/master/examples) directory for more. 
 
 ## Custom Controls
 
@@ -59,7 +57,7 @@ You can define your custom inline styles, blocks, atomic blocks and callback act
 This sample adds a control to change the background color and font color of the typed or selected text:
 
 ```js
-import MUIRichTextEditor from 'mui-rte'
+import MUIRichTextEditor from 'mui3-rte'
 import InvertColorsIcon from '@material-ui/icons/InvertColors'
 
 <MUIRichTextEditor 
@@ -83,7 +81,7 @@ import InvertColorsIcon from '@material-ui/icons/InvertColors'
 This sample adds a block to the editor based on a `React Element`:
 
 ```js
-import MUIRichTextEditor from 'mui-rte'
+import MUIRichTextEditor from 'mui3-rte'
 import TableChartIcon from '@material-ui/icons/TableChart'
 
 const MyBlock = (props) => {
@@ -113,22 +111,20 @@ const MyBlock = (props) => {
 
 ### Adding a custom atomic block (Async)
 
-<img src="https://raw.githubusercontent.com/niuware/niuware.github.io/master/public/assets/mui-rte/async-upload-demo.gif" width="600" />
+It is possible to insert custom blocks based on asynchronous behavior using the `insertAtomicBlockAsync` API. The above example shows an [example](https://github.com/sdc224/mui3-rte/blob/master/examples/async-image-upload/index.tsx) on how to upload an image and use the `MUIRichTextEditor` default image control for further edition. You can use this behavior to upload a file when dropping it inside the editor and render it as an image entity after upload.
 
-It is possible to insert custom blocks based on asynchronous behavior using the `insertAtomicBlockAsync` API. The above example shows an [example](https://github.com/niuware/mui-rte/blob/master/examples/async-image-upload/index.tsx) on how to upload an image and use the `MUIRichTextEditor` default image control for further edition. You can use this behavior to upload a file when dropping it inside the editor and render it as an image entity after upload.
-
-Check this [other sample](https://github.com/niuware/mui-rte/blob/master/examples/async-atomic-custom-block/index.tsx) that shows how to add a `@material-ui/core` Card with asynchronous downloaded content.
+Check this [other sample](https://github.com/sdc224/mui3-rte/blob/master/examples/async-atomic-custom-block/index.tsx) that shows how to add a `@material-ui/core` Card with asynchronous downloaded content.
 
 ### Adding a custom atomic block (Sync)
 
-Check [this sample](https://github.com/niuware/mui-rte/blob/master/examples/atomic-custom-block/index.tsx) that shows how to create a control to add a `@material-ui/core` Card component to the editor.
+Check [this sample](https://github.com/sdc224/mui3-rte/blob/master/examples/atomic-custom-block/index.tsx) that shows how to create a control to add a `@material-ui/core` Card component to the editor.
 
 ### Adding a custom callback control
 
 This sample adds a control that will trigger a custom callback function to clear the editor state:
 
 ```js
-import MUIRichTextEditor from 'mui-rte'
+import MUIRichTextEditor from 'mui3-rte'
 import DoneIcon from '@material-ui/icons/Done'
 import { EditorState } from 'draft-js'
 
@@ -150,8 +146,6 @@ import { EditorState } from 'draft-js'
 
 ## Autocomplete strategies
 
-<img src="https://raw.githubusercontent.com/niuware/niuware.github.io/master/public/assets/mui-rte/ac-demo.gif" width="600" />
-
 You can define autocomplete strategies to present suggested content lists based on the text input. Just set your trigger character, add some search keys and the content to insert and the editor will do everything for you. You can navigate through suggestions using the keyboard arrows and finally press 'Enter' to insert your content into the editor.
 
 ### Simple strategy example
@@ -159,7 +153,7 @@ You can define autocomplete strategies to present suggested content lists based 
 This is an example to show emoji suggestions when the user start typing a text like ':face', ':joy', or ':grin':
 
 ```js
-import MUIRichTextEditor from 'mui-rte'
+import MUIRichTextEditor from 'mui3-rte'
 
 const emojis = [
     {
