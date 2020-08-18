@@ -3,10 +3,9 @@
 	"version": "1.2.0",
 	"description": "Material-UI v3 Rich Text Editor and Viewer",
 	"files": [
-		"dist",
-		"types"
+		"dist"
 	],
-	"typings": "./types",
+	"types": "./dist/index.d.ts",
 	"keywords": [
 		"material-ui",
 		"v3",

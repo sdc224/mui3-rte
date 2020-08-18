@@ -12,11 +12,12 @@
 		"baseUrl": ".",
 		"jsx": "react",
 		"declaration": true,
-		"declarationDir": "./types",
+		"declarationDir": "./dist",
 		"lib": ["es5", "es6", "dom"],
 		"paths": {
 			"*": ["node_modules/*"]
 		}
 	},
-	"include": ["src/**/*"]
+	"include": ["src/**/*"],
+	"exclude": ["node_modules", "dist", "example", "rollup.config.js"]
 }
