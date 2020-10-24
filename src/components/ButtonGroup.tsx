@@ -1,5 +1,5 @@
 import React from "react";
-import classNames from "classnames";
+import clsx from "clsx";
 // import { isFragment } from "react-is";
 import capitalize from "../utils/capitalize";
 import { fade } from "../utils/colorManipulator";
@@ -239,7 +239,7 @@ const ButtonGroup = React.forwardRef(function ButtonGroup(
 		...other
 	} = props;
 
-	const buttonClassName = classNames(
+	const buttonClassName = clsx(
 		classes.grouped,
 		classes[`grouped${capitalize(orientation)}`],
 		classes[`grouped${capitalize(variant)}`],
@@ -257,7 +257,7 @@ const ButtonGroup = React.forwardRef(function ButtonGroup(
 	return (
 		<Component
 			role="group"
-			className={classNames(
+			className={clsx(
 				classes.root,
 				{
 					[classes.contained]: variant === "contained",
@@ -276,10 +276,7 @@ const ButtonGroup = React.forwardRef(function ButtonGroup(
 				}
 
 				return React.cloneElement(child, {
-					className: classNames(
-						buttonClassName,
-						child.props.className
-					),
+					className: clsx(buttonClassName, child.props.className),
 					color: child.props.color || color,
 					disabled: child.props.disabled || disabled,
 					disableElevation:

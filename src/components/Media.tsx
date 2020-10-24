@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from "react";
-import classNames from "classnames";
+import clsx from "clsx";
 import { ContentState, ContentBlock } from "draft-js";
 import {
 	createStyles,
@@ -54,7 +54,7 @@ const Media: FunctionComponent<IMediaProps> = (props) => {
 	const htmlTag = () => {
 		const componentProps = {
 			src: url,
-			className: classNames(props.classes.root, {
+			className: clsx(props.classes.root, {
 				[props.classes.editable]: !readOnly,
 				[props.classes.focused]:
 					!readOnly && focusKey === props.block.getKey()
@@ -80,7 +80,7 @@ const Media: FunctionComponent<IMediaProps> = (props) => {
 
 	return (
 		<div
-			className={classNames({
+			className={clsx({
 				[props.classes.centered]: alignment === "center",
 				[props.classes.leftAligned]: alignment === "left",
 				[props.classes.rightAligned]: alignment === "right"

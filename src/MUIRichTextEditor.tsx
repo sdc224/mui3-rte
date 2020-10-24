@@ -8,7 +8,7 @@ import React, {
 	RefForwardingComponent
 } from "react";
 import Immutable from "immutable";
-import classNames from "classnames";
+import clsx from "clsx";
 import {
 	createStyles,
 	withStyles,
@@ -137,6 +137,7 @@ export type TMUIRichTextEditorProps = {
 	onChange?: (state: EditorState) => void;
 	onFocus?: () => void;
 	onBlur?: () => void;
+	focuser?: (method: () => void) => void;
 };
 
 interface IMUIRichTextEditorProps
@@ -227,6 +228,7 @@ const blockRenderMap = Immutable.Map({
 		wrapper: <CodeBlock />
 	}
 });
+
 const styleRenderMap: DraftStyleMap = {
 	STRIKETHROUGH: {
 		textDecoration: "line-through"
@@ -360,6 +362,14 @@ const MUIRichTextEditor: RefForwardingComponent<
 			handleInsertAtomicBlockAsync(name, promise, placeholder);
 		}
 	}));
+
+	const focuser = () => {
+		handleFocus();
+	};
+
+	useEffect(() => {
+		props.focuser?.(focuser);
+	}, []);
 
 	useEffect(() => {
 		const editorState = useEditorState(props);
@@ -1274,7 +1284,7 @@ const MUIRichTextEditor: RefForwardingComponent<
 		if (!contentState.hasText()) {
 			placeholder = (
 				<div
-					className={classNames(
+					className={clsx(
 						classes.editorContainer,
 						classes.placeHolder,
 						{
@@ -1294,7 +1304,7 @@ const MUIRichTextEditor: RefForwardingComponent<
 		<div id={`${editorId}-root`} className={classes.root}>
 			<div
 				id={`${editorId}-container`}
-				className={classNames(classes.container, {
+				className={clsx(classes.container, {
 					[classes.inheritFontSize]: props.inheritFontSize
 				})}
 			>
@@ -1341,14 +1351,10 @@ const MUIRichTextEditor: RefForwardingComponent<
 				<div id={`${editorId}-editor`} className={classes.editor}>
 					<div
 						id={`${editorId}-editor-container`}
-						className={classNames(
-							className,
-							classes.editorContainer,
-							{
-								[classes.editorReadOnly]: !editable,
-								[classes.error]: props.error
-							}
-						)}
+						className={clsx(className, classes.editorContainer, {
+							[classes.editorReadOnly]: !editable,
+							[classes.error]: props.error
+						})}
 						onClick={handleFocus}
 						onBlur={handleBlur}
 					>

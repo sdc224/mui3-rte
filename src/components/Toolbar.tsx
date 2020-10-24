@@ -55,7 +55,7 @@ export type TCustomControl = {
 	component?: FunctionComponent<TToolbarComponentProps>;
 	inlineStyle?: React.CSSProperties;
 	blockWrapper?: React.ReactElement;
-	atomicComponent?: FunctionComponent;
+	atomicComponent?: React.ComponentType<Pick<any, string | number | symbol>>;
 	onClick?: (
 		editorState: EditorState,
 		name: string,
